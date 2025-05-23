@@ -1,0 +1,32 @@
+trigger:
+- main
+
+pool:
+VMagent:
+
+schedules:
+- corn: ""
+branches:
+  includes:
+   -  main
+
+variables:
+- templates: global-variables.yml
+
+stages:
+  stage: build
+  displayName:
+  variables:
+  - templates: build-varaibles.yml
+  jobs:
+  - templates: build.yml
+
+  stage:deployto dev
+  displayNmae: deploytodev
+  varaibles:
+  - templates:  dev-varaibles.yml
+  jobs:
+  - templates: deployment.yml
+  parameters:
+  env: dev
+  subscrition: ""
