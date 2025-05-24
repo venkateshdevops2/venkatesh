@@ -1,5 +1,0 @@
-schedules:
-- corn: ""
-branches:
-  includes:
-   -  main
